@@ -2,6 +2,7 @@ import './news.css';
 
 class News {
     draw(data) {
+        console.log(data)
         const news = data.length >= 10 ? data.filter((_item, idx) => idx < 10) : data;
 
         const fragment = document.createDocumentFragment();
@@ -9,7 +10,6 @@ class News {
 
         news.forEach((item, idx) => {
             const newsClone = newsItemTemp.content.cloneNode(true);
-
             if (idx % 2) newsClone.querySelector('.news__item').classList.add('alt');
 
             newsClone.querySelector('.news__meta-photo').style.backgroundImage = `url(${

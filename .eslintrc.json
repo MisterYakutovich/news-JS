@@ -1,13 +1,19 @@
 {
-    "plugins": ["prettier", "import"],
+    "plugins": ["prettier", "import","@typescript-eslint"],
+    "root":true,
     "extends": [
-        "plugin:prettier/recommended",
-        "prettier"
+        "prettier",
+        "airbnb-base",
+        "airbnb-typescript/base",
+        "plugin:@typescript-eslint/recommend",
+        "plugin:prettier/recommended"
     ],
     "parserOptions": {
         "ecmaVersion": 2020,
-        "sourceType": "module"
+        "sourceType": "module",
+        "project":"./tsconfig.json"
     },
+    "parser":"@typescript-eslint/parser",
     "env": {
         "es6": true,
         "browser": true,
@@ -16,6 +22,36 @@
     "rules": {
         "no-debugger": "off",
         "no-console": 0,
-        "class-methods-use-this": "off"
+        "class-methods-use-this": "off",
+        "import/extension": "off",
+        "prettier/prettier": "error",
+        "import/prefer-default-export":"off",
+        "@typescript-eslint/no-explicit-any":"error",
+        "@typescript-eslint/no-inferrable-types":"off",
+        "@typescript-eslint/array-type":[
+            "error",
+            {
+                "default":"array"
+            },
+        ],
+        "@typescript-eslint/explicit-member-accessibility":[
+            "error",
+            {
+                "accessibility":"explicit",
+                "overrides":{
+                    "accessors":"explicit",
+                    "constructors":"off",
+                    "methods":"explicit",
+                    "properties":"explicit",
+                    "parameterProperties":"explicit"
+                }
+            }
+        ],
+        "max-lines-per-function":["error",40],
+        "@typescript-eslint/explicit-function-return-type":"error",
+        "@typescript-eslint/no-unnecessary-type-assertion":"error",
+        "@typescript-eslint/n0-non-null-assertion":"error"
+
+
     }
 }

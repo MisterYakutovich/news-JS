@@ -5,6 +5,7 @@ export class AppView {
     constructor() {
         this.news = new News();
         this.sources = new Sources();
+        
     }
 
     drawNews(data) {
